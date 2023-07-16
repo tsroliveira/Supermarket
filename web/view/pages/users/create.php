@@ -1,0 +1,173 @@
+<?php
+  $msg = "";
+  include_once('./view/pages/session.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Supermarket</title>
+
+    <!-- Bootstrap -->
+    <link href="./view/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./view/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="./view/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="./view/build/css/custom.min.css" rel="stylesheet">
+    <link rel="icon" href="./view/src/img/favicon.ico" type="image/ico" />
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <?php include_once './view/pages/top-bar.php'; ?>
+        <?php include_once './view/pages/main-menu.php'; ?>
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Create User</h3>
+              </div>
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5  form-group row pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." disabled>
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Form Wizards <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a href="home" class="text-dark" title="back"><i class="fa fa-reply-all"></i></a></li>
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content"><!-- Smart Wizard -->
+                    <?php echo $msg;?>
+                    <?php echo $ok;?>
+                    <form class="form-horizontal form-label-left" action="useradd" method="post" enctype="multipart/form-data">
+                      <div id="wizard" class="form_wizard wizard_horizontal">
+                        <ul class="wizard_steps">
+                          <li>
+                            <a href="#step-1">
+                              <span class="step_no">1</span>
+                              <span class="step_descr">
+                                Step 1<br />
+                                <small>&nbsp;&nbsp;&nbsp;&nbsp; Full Name &nbsp;&nbsp;&nbsp;</small>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#step-2">
+                              <span class="step_no">2</span>
+                              <span class="step_descr">
+                                Step 2<br />
+                                <small>&nbsp;&nbsp;&nbsp;&nbsp; Access Data &nbsp;&nbsp;&nbsp;</small>
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#step-3">
+                              <span class="step_no">3</span>
+                              <span class="step_descr">
+                                Step 3<br />
+                                <small>System Profile&nbsp;</small>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                        <div id="step-1">
+                          <div class="form-group row">
+                            <div class="col-md-2 col-sm-2 "></div>
+                            <div class="col-md-8 col-sm-8 ">
+                              Name 
+                              <input type="text" id="name" name="name" required="required" class="form-control  ">
+                              <br>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="step-2">
+                          <div class="form-group row">
+                            <div class="col-md-2 col-sm-2"></div>
+                            <div class="col-md-4 col-sm-4">
+                              Username
+                              <input id="username" name="username" class="form-control col" type="text" required>
+                            </div>
+                            <div class="col-md-4 col-sm-4 ">
+                              Password
+                              <input id="password" name="password" class="form-control col" type="password" required>
+                              <br>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="step-3">
+                          <div class="form-group row">
+                            <div class="col-md-2 col-sm-2"></div>
+                            <div class="col-md-8 col-sm-8">
+                              Profile
+                              <select class="form-control text-secondary" id="profile" name="profile" required="required">
+                                <option value="User">User</option>
+                                <option value="System">System</option>
+                              </select>
+                              <br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>           
+                  </div><!-- End SmartWizard Content --> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+        <?php include_once './view/pages/footer.php';?>
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script src="./view/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+   <script src="./view/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="./view/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./view/vendors/nprogress/nprogress.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="./view/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard_AddAnalista.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="./view/build/js/custom.min.js"></script>
+    <!-- jQuery Input Mask -->
+    <script src="./view/vendors/jquery.mask/jquery.mask.min.js"></script>
+	
+  </body>
+</html>
