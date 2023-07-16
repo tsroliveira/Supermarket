@@ -2,7 +2,9 @@
  Supermarket System
 
 # Notas do Projeto
-#########################################################################################################################################################################################################
+
+##############################################################################################################
+
 O sistema foi desenvolvido conforme as seguintes recomendações.
 
 - Código deve ser desenvolvido em inglês; OK;
@@ -24,7 +26,8 @@ O sistema foi desenvolvido conforme as seguintes recomendações.
 - Use o servidor local que o PHP fornece (não o Apache, por exemplo); OK;
 - Referente ao item 6, refere-se a uma estrutura de Front. Não tão backend.OK;
 
-#########################################################################################################################################################################################################
+##############################################################################################################
+
 Instalação do projeto
 
 1 - BANCO DE DADOS: O database utilizado no desenvolvimento foi o mssql server 2019 latest. Para replicar o ambiente eu disponibilizei na masta "/mssql-server/" as configurações utilizadas no arquivo docker-compose.yaml.
@@ -40,7 +43,7 @@ Instalação do projeto
 
 
 Desde já agradeço, espero que corra tudo bem quanto as instruções do projeto.
-#########################################################################################################################################################################################################
+##############################################################################################################
 
 
 
