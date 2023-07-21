@@ -172,7 +172,7 @@ class WebCartController
                     p.id as 'pdid',
                     p.name, 
                     p.description , 
-                    p.quantity,
+                    p.quantity as 'pquantity',
                     p.id_pt,
                     p.value as 'pvalue',
                     pt.name as 'type',

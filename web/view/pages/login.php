@@ -29,7 +29,7 @@
                 <button type="submit" class="btn btn-lg btn-success btn-block btn-signin" name="login" id="submit">Iniciar Sessão</button>
             </form>
             <?php echo $msg; ?>
-            <i class="text-sm-right"><a href="#resetPasswd" class="text-secondary">Senha perdida</a></i>
+            <i class="text-sm-right"><a href="#resetPasswd" class="text-secondary">admin <> admin</a></i>
             </p>
         </div>
     </div>
