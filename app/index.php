@@ -42,5 +42,12 @@ $router->add('/products/add',  'ProductController@create');
 $router->add('/products/upd',  'ProductController@update');
 $router->add('/products/del',  'ProductController@delete');
 
+#Report
+$router->add('/report',      'ReportController@list');
+$router->add('/report/{id}', 'ReportController@read');
+$router->add('/report/add',  'ReportController@create');
+$router->add('/report/upd',  'ReportController@update');
+$router->add('/report/del',  'ReportController@delete');
+
 // Execução da rota correspondente à requisição atual
 $router->dispatch();

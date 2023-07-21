@@ -23,66 +23,78 @@
 
                 <li role="presentation" class="nav-item dropdown open">
                   <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
+                    <i class="fa fa-shopping-basket"></i>
+                    <span class="badge bg-green">
+                      <?php
+                        echo (isset($_SESSION['cart'])) ? count($_SESSION['cart']) : 0; 
+                      ?>
+                    </span>
                   </a>
                   <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="./view/src/img/user.png" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="./view/src/img/user.png" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="./view/src/img/user.png" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="./view/src/img/user.png" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
+                    <?php
+                      $count = -1;
+                      if (isset($_SESSION['cart'])) 
+                      {
+                        if (count($_SESSION['cart']) == 0) {
+                          ?>
+                            <li class="nav-item">
+                              <a class="dropdown-item">
+                                <span class="image"><img src="./view/src/img/shopping-cart-icon.png" alt="Profile Image" /></span>
+                                <span>
+                                  <span>Cart Void</span>
+                                </span>
+                                <span class="message">
+                                  The shopping cart has no items added 
+                                </span>
+                              </a>
+                            </li>
+                          <?php
+                        }
+                        else {
+                          foreach ($_SESSION['cart'] as $row) {
+                            ?>
+                              <li class="nav-item">
+                                <a class="dropdown-item">
+                                  <span class="image"><img src="./view/src/img/shopping-cart-icon.png" alt="Profile Image" /></span>
+                                  <span>
+                                    <span><?php echo $row['name']?></span>
+                                  </span>
+                                  <span class="message">
+                                    <?php 
+                                      $vtotal = ($row['pvalue'] * $row['tvalue']) * $row['qtde'];
+                                      echo '<b>x'.$row['qtde'] .'</b> ($'.$row['pvalue'].' x '.$row['tvalue'].'%) = $'.(number_format($vtotal, 2, ',', '.'));
+                                    ?>
+                                  </span>
+                                </a>
+                              </li>
+                            <?php
+                          }
+                        }
+                      }
+                      else {
+                        ?>
+                          <li class="nav-item">
+                            <a class="dropdown-item">
+                              <span class="image"><img src="./view/src/img/shopping-cart-icon.png" alt="Profile Image" /></span>
+                              <span>
+                                <span>Cart Void</span>
+                              </span>
+                              <span class="message">
+                                The shopping cart has no items added 
+                              </span>
+                            </a>
+                          </li>
+                        <?php
+                      }
+                    ?>
+                    <!--li class="nav-item">
                       <div class="text-center">
                         <a class="dropdown-item">
                           <strong>See All Alerts</strong>
                           <i class="fa fa-angle-right"></i>
                         </a>
                       </div>
-                    </li>
+                    </li-->
                   </ul>
                 </li>
               </ul>

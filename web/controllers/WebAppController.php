@@ -53,10 +53,10 @@ class WebAppController
         unset($_SESSION["id"]);
         unset($_SESSION["fullname"]);
         unset($_SESSION["name"]);
+        unset($_SESSION["cart"]);
         header("Location: login");
         exit;
     }
-
     
 }
 ?>

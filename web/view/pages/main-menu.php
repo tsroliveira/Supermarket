@@ -48,7 +48,7 @@
             </li>
             <li><a><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a href="#dev">Reports</a></li>
+                <li><a href="reports">Reports</a></li>
               </ul>
             </li>
           </ul>

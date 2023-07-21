@@ -1,7 +1,10 @@
 <?php
     #GET Session
     require_once './classes/Database.php';
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
     if ($_SESSION["status"] == 'online_mkt_key') 
     {  
         #Segue em frente

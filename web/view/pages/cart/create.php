@@ -1,11 +1,13 @@
 <?php
-include_once('./view/pages/session.php');
-require_once('./controllers/WebCartController.php');
-$msg = !empty($msg) ? $msg : "";
-if(!empty($_POST))
-{
-  require_once('update.php');
-}
+  include_once('./view/pages/session.php');
+  $msg = !empty($msg) ? $msg : "";
+
+  if ( (!isset($_SESSION['cart']))  ||  (count($_SESSION['cart']) == 0) ) {
+    if ($msg == ""){
+      $msg = '<div class="alert alert-danger" role="alert">There are no products added to the shopping cart.</div>';
+    }
+    $_SESSION['cart'] = [];
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +50,7 @@ if(!empty($_POST))
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3>Products List</h3>
+              <h3>Products</h3>
             </div>
             <div class="title_right">
               <div class="col-md-5 col-sm-5 form-group pull-right top_search">
@@ -62,76 +64,59 @@ if(!empty($_POST))
             </div>
           </div>
           <div class="clearfix"></div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2><i class="fa fa-shopping-cart"></i> Itens <small></small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="cartlist"  class="text-dark" title="back"><i class="fa fa-reply-all"></i></a></li>
-                    <li><a class="#"></a></li>
-                    <li><a href="cartcls"   class="text-dark" title="Clear Cart"><img src="./view/src/img/supermarket-clear-cart.png" width="32" height="32"></a></li>
-                    <li><a class="#"></a></li>
-                    <li><a href="cartchk"   class="text-dark" title="Make Check-Out"><img src="./view/src/img/supermarket-check-out.png" width="36" height="32"></a></li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <?php echo $msg; ?>
-                </div>
-                <div class="x_content">
-                  <table id="datatable" class="table table-striped" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th><b>#</b></th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Type</th>
-                        <th>Price</th>
-                        <th>Taxe</th>
-                        <th>Select</th>
-                        <th>#Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                        foreach ($response as $row) {
-                          ?>
-                            <tr>
-                              <form class="form-horizontal" action="cartlist" method="post" name="<?php $i;?>">
+          <form class="form-horizontal" action="cartadd" method="post">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-shopping-cart"></i> Cart <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a href="cartlist" class="text-dark" title="back"><i class="fa fa-reply-all"></i></a></li>
+                      <li><a href="cartcls"   class="text-dark" title="Clear Cart"><img src="./view/src/img/supermarket-clear-cart.png" width="32" height="32"></a></li>
+                      <li><button type="submit" class="btn" title="Confirm Check-Out"><img src="./view/src/img/supermarket-check-out.png" width="36" height="32"></button></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <?php echo $msg;?>
+                  </div>
+                  <div class="x_content">
+                    <table id="datatable" class="table table-striped" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th><b>#</b></th>
+                          <th>Name</th>
+                          <th>Price</th>
+                          <th>Taxe Value</th>
+                          <th>Quantity</th>
+                          <th>Stock</th>
+                          <th>Total Value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                          foreach ($_SESSION['cart'] as $row) {
+                            $vtotal = (($row['pvalue'] *  $row['tvalue']) * $row['qtde']);
+                            ?>
+                              <tr> 
                                 <th scope="row"><img src="./view/src/img/supermarket-product.svg" class="avatar2" alt="Avatar2"></th>
                                 <td><?php echo $row['name'] ?></td>
-                                <td><?php echo $row['description'] ?></td>
-                                <td><i class="fa fa-sort-numeric-asc"></i> <?php echo $row['quantity'] ?></td>
-                                <td><i class="fa fa-tags"></i><?php echo $row['type'] ?></td>
-                                <td><b>$</b><?php echo $row['pvalue'] ?></td>
-                                <td><?php echo $row['taxe'].'x '. $row['tvalue'].'%'?></td>
-                                <td>
-                                  <input type="number" id="qtde"        name="qtde"         min="1" class="form-control"  max="<?php echo $row['quantity'];?>" required>
-                                  <input type="hidden" id="pdid"        name="pdid"         value="<?php echo $row['pdid'];?>">
-                                  <input type="hidden" id="name"        name="name"         value="<?php echo $row['name'];?>">
-                                  <input type="hidden" id="description" name="description"  value="<?php echo $row['description'];?>">
-                                  <input type="hidden" id="id_pt"       name="id_pt"        value="<?php echo $row['id_pt'];?>">
-                                  <input type="hidden" id="pvalue"      name="pvalue"       value="<?php echo $row['pvalue'];?>">
-                                  <input type="hidden" id="tvalue"      name="tvalue"       value="<?php echo $row['tvalue'];?>">
-                                  <input type="hidden" id="stock"       name="stock"        value="<?php echo $row['quantity'];?>">
-                                </td>
-                                <td width="120px">
-                                  <button type="submit" name="op" value="add" class="btn"><i class='fa fa-plus-circle fa-lg' style='color:#1eb300' title="Add Item"></i></button>
-                                  <button type="submit" name="op" value="rmv" class="btn"><i class='fa fa-minus-circle fa-lg' style='color:#ec0909' title="Remove Item"></i></button>
-                                </td>
-                              </form> 
-                            </tr>
-                          <?php
-                        }
-                      ?>
-                    </tbody>
-                  </table>
+                                <td><?php echo $row['pvalue'] ?></td>
+                                <td><?php echo $row['tvalue'] ?></td>
+                                <td><?php echo $row['qtde'] ?></td>
+                                <td><?php echo $row['stock'] ?></td>
+                                <td><?php echo number_format($vtotal, 2, ',', '.') ?></td>
+                              </tr>
+                            <?php
+                          }
+                        ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <!-- /page content -->

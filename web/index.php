@@ -49,8 +49,10 @@ $router->add('/userupd',        'WebUserController@update');
 $router->add('/userdel',        'WebUserController@delete');
 
 $router->add('/cartlist',       'WebCartController@list');
+$router->add('/cartchk',        'WebCartController@checkoutCart');
+$router->add('/cartcls',        'WebCartController@clearCart');
 $router->add('/cartadd',        'WebCartController@create');
-
+$router->add('/reports',        'WebCartController@getReport');
 
 
 // Execução da rota correspondente à requisição atual

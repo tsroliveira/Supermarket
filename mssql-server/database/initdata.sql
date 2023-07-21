@@ -40,6 +40,18 @@ CREATE TABLE supermarket.dbo.product (
 	CONSTRAINT product_FK FOREIGN KEY (id_pt) REFERENCES supermarket.dbo.productType(id)
 );
 
+CREATE TABLE supermarket.dbo.report (
+	id int NOT NULL,
+	idpd int NOT NULL,
+	pvalue decimal(10,2) NOT NULL,
+	tvalue decimal(10,2) NOT NULL,
+	vtotal decimal(10,2) NOT NULL,
+	quantity int NOT NULL,
+	[datetime] datetime NULL,
+	CONSTRAINT PK_report PRIMARY KEY (id),
+	CONSTRAINT report_FK FOREIGN KEY (idpd) REFERENCES supermarket.dbo.product(id)
+);
+
 INSERT INTO supermarket.dbo.users (name,username,password,profile) VALUES
 	 (N'Thiago Oliveira',N'thiago.r.oliveira',N'VmxkNGExTXdNVVpOV0VaVFlUQmFUMWxYZEVkT1ZsSllXWHBzVVZWVU1Eaz0=',N'System'),
 	 (N'Antonio Jose',N'antonio.jose',N'Vm0weGQxSXhiRmhTV0doWFYwZDRWMWxVU205V1JteHlXa2M1VmxKc1dubFdWM1JMVlVaV1ZVMUVhejA9',N'User'),
