@@ -47,7 +47,6 @@ Desde já agradeço, espero que corra tudo bem quanto as instruções do projeto
 
 ![image](https://github.com/user-attachments/assets/2739b571-a79d-4de3-a597-afd16fee0323)
 
-##############################################################################################################
 
 
 
