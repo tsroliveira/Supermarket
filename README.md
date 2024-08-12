@@ -3,28 +3,24 @@
 
 # Notas do Projeto
 
-##############################################################################################################
+O sistema foi desenvolvido com base nos seguintes requisitos:
 
-O sistema foi desenvolvido conforme as seguintes recomendações.
-
-- Código deve ser desenvolvido em inglês; OK;
-  Textos inseridos de forma manual em inglês;
+1. O código deve ser desenvolvido em formato universal, com textos inseridos manualmente em inglês.
   
-- Faça um login (é um plus); OK;
-  Feito login manual, sem frameworks, nao foi possivel desenvolver mais requisitos de segurança como criptografia, validação de campos e demais complexidades manualmente, devido ao pouco tempo de disponibilidade que tive;
+2. Deverá conter um sistema de login simples.Feito manual, sem uso de frameworks. Não sendo necessário desenvolver requisitos de segurança complexos como criptografia avançada.
   
-- Separe Front/Back usando API; OK;
-  Backend de forma 100% manual, sem a utilização de frameworks em formado de API Rest com baixo esquema de segurança, implementei uma autenticação simples com basic auth e criptografia da senha com base64_encoder, sem chave e sem outros método de complexidade.
-  Foi disponibilizado um arquivo no diretório mssql-server/Supermarket.postman_collection.json, onde é possível testar todas as operações di BackEnd de forma independente do FrontEnd;
+3. O FrontEnd deve estar separado do BackEnd e devem se falar em formado de API Rest.
 
-- Faça algum teste interno, para verificar o bom funcionamento do código; OK;
-  Testes realizados, ficando pendente as operações de carrinho de compras;
+4. O Backend deve estar 100% manual, sem a utilização de frameworks. Deve conter ao menos uma autenticação simples com basic auth e criptografia da senha com base64_encoder.
 
-- Usar teste unitário é essencial; OK;
-- Use algum framework JS; OK;
-- Não utilize outro mecanismo de banco de dados além dos sugeridos (MSSQL ou PgSQL); OK;
-- Use o servidor local que o PHP fornece (não o Apache, por exemplo); OK;
-- Referente ao item 6, refere-se a uma estrutura de Front. Não tão backend.OK;
+5. Deverá ser disponibilizado um arquivo no diretório "/mssql-server/" com a collection que possa ser importada em programas como Postman ou similares para fazer os testes da API do BackEnd de forma independente do FrontEnd.
+
+6. Para o FrontEnd poderá ser utilizado algum Framework JS.
+
+7. Deverá ser utilizado como SGBD o MSSQL ou PgSQL em formato de Docker.
+
+8. Deverá ser usado o servidor local que o PHP fornece (não um servidor de mercado como Apache por exemplo.
+
 
 ##############################################################################################################
 
