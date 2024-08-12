@@ -1,4 +1,5 @@
 <?php
+require_once './classes/Config.php';
 require_once './classes/Database.php';
 require_once './classes/Auth.php';
 require_once './model/Product.php';
@@ -11,7 +12,7 @@ class WebCartController
     private $url;
 
     public function __construct() {
-        $this->url = 'http://localhost:8000/';
+        $this->url = BASE_URL;
         $database = new Database();
         $conn = $database->getConnection(); 
         $getAuth = new Auth($conn);

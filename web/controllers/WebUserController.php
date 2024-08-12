@@ -1,4 +1,5 @@
 <?php
+require_once './classes/Config.php';
 require_once './classes/Database.php';
 require_once './classes/Auth.php';
 
@@ -12,7 +13,7 @@ class WebUserController
         $conn = $database->getConnection(); 
         $getAuth = new Auth($conn);
         $this->auth = $getAuth->returnAuthWeb();
-        $this->url = 'http://localhost:8000/';
+        $this->url = BASE_URL;
     }
 
     public function list()

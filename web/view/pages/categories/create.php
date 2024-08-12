@@ -1,5 +1,6 @@
 <?php
   $msg = "";
+  include_once('../../../classes/Config.php');
   include_once('./view/pages/session.php');
 ?>
 <!DOCTYPE html>
@@ -129,7 +130,7 @@
                               <?php
                                 $curl = curl_init();
                                 curl_setopt_array($curl, array(
-                                  CURLOPT_URL => 'http://localhost:8000/taxes',
+                                  CURLOPT_URL => BASE_URL.'taxes',
                                   CURLOPT_RETURNTRANSFER => true,
                                   CURLOPT_ENCODING => '',
                                   CURLOPT_MAXREDIRS => 10,
