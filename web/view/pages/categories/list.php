@@ -1,7 +1,6 @@
 <?php
-include_once('../../../classes/Config.php');
-include_once('./view/pages/session.php');
 $msg = "";
+require_once './controllers/WebRequest.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,26 +94,9 @@ $msg = "";
                             <td>
                               <i class="fa fa-bitcoin"></i> 
                               <?php 
-                                $curl = curl_init();
-                                curl_setopt_array($curl, array(
-                                  CURLOPT_URL => BASE_URL.'taxes/'.$row->id_tx,
-                                  CURLOPT_RETURNTRANSFER => true,
-                                  CURLOPT_ENCODING => '',
-                                  CURLOPT_MAXREDIRS => 10,
-                                  CURLOPT_TIMEOUT => 0,
-                                  CURLOPT_FOLLOWLOCATION => true,
-                                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                  CURLOPT_CUSTOMREQUEST => 'GET',
-                                  CURLOPT_HTTPHEADER => array(
-                                    'Authorization: Basic ZnJvbnRlbmR0b2tlbjphZG1pbg=='
-                                  ),
-                                ));
-
-                                $taxeName = curl_exec($curl);                                      
-                                curl_close($curl);
-                                $taxeName = json_decode($taxeName);
-                              ?>
-                              <?php echo $taxeName->response->taxe?> 
+                                $taxeName = webRequest('taxes/'.$row->id_tx, 'GET');
+                                echo $taxeName->response->taxe;
+                              ?> 
                             </td>
                             <td>
                               <a href="/typeupd?id=<?php echo $row->id ?>" class="btn btn-outline-success btn-sm"><i class="fa fa-pencil"></i> Edit </a>

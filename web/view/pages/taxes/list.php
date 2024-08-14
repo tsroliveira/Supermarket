@@ -1,6 +1,6 @@
 <?php
-include_once('./view/pages/session.php');
-$msg = "";
+  $msg = "";
+  require_once './controllers/WebRequest.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

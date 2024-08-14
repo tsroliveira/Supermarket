@@ -1,6 +1,5 @@
 <?php
-include_once('./view/pages/session.php');
-$msg = "";
+  require_once './controllers/WebRequest.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,26 +94,8 @@ $msg = "";
                             <td>
                               <i class="fa fa-tag"></i> 
                               <?php 
-                                $curl = curl_init();
-                                curl_setopt_array($curl, array(
-                                  CURLOPT_URL => 'http://localhost:8000/productType/'.$row->id_pt,
-                                  CURLOPT_RETURNTRANSFER => true,
-                                  CURLOPT_ENCODING => '',
-                                  CURLOPT_MAXREDIRS => 10,
-                                  CURLOPT_TIMEOUT => 0,
-                                  CURLOPT_FOLLOWLOCATION => true,
-                                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                  CURLOPT_CUSTOMREQUEST => 'GET',
-                                  CURLOPT_HTTPHEADER => array(
-                                    'Authorization: Basic ZnJvbnRlbmR0b2tlbjphZG1pbg=='
-                                  ),
-                                ));
-
-                                $productType = curl_exec($curl);                                      
-                                curl_close($curl);
-                                $productType = json_decode($productType);
-                              ?>
-                              <?php echo $productType->response->name?> 
+                                $productType = webRequest('productType/'.$row->id_pt, 'GET');
+                                echo $productType->response->name?> 
                             </td>
                             <td><i class="fa fa-bitcoin"></i> <?php echo $row->value ?></td>
                             <td>

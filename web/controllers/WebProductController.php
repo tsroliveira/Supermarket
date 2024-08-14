@@ -1,5 +1,5 @@
 <?php
-require_once './classes/Config.php';
+
 require_once './classes/Database.php';
 require_once './classes/Auth.php';
 
@@ -67,7 +67,7 @@ class WebProductController
   {
     $ok = "";
     if (!empty($_POST)) {
-      $name           = (isset($_POST['name']))           ? $_POST['name']        : '';
+      echo $name           = (isset($_POST['name']))           ? $_POST['name']        : '';
       $description    = (isset($_POST['description']))    ? $_POST['description'] : '';
       $quantity       = (isset($_POST['quantity']))       ? $_POST['quantity']    : '';
       $id_pt          = (isset($_POST['id_pt']))          ? $_POST['id_pt']       : '';

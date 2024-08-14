@@ -1,6 +1,5 @@
 <?php
-  $msg = "";
-  include_once('./view/pages/session.php');
+  require_once './controllers/WebRequest.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,47 +109,13 @@
                                     <select class="form-control text-secondary" id="id_pt" name="id_pt" required="required">
 
                                     <?php 
-                                      $curl = curl_init();
-
-                                      curl_setopt_array($curl, array(
-                                        CURLOPT_URL => 'http://localhost:8000/productType/'.$response->id_pt,
-                                        CURLOPT_RETURNTRANSFER => true,
-                                        CURLOPT_ENCODING => '',
-                                        CURLOPT_MAXREDIRS => 10,
-                                        CURLOPT_TIMEOUT => 0,
-                                        CURLOPT_FOLLOWLOCATION => true,
-                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                        CURLOPT_CUSTOMREQUEST => 'GET',
-                                        CURLOPT_HTTPHEADER => array(
-                                          'Authorization: Basic ZnJvbnRlbmR0b2tlbjphZG1pbg=='
-                                        ),
-                                      ));
-
-                                      $productType = curl_exec($curl);                                      
-                                      curl_close($curl);
-                                      $productType = json_decode($productType);
+                                      $productType = webRequest('productType/'.$response->id_pt, 'GET');
                                     ?>
                                       <option value="<?php echo !empty($response->id_pt)?$response->id_pt: '';?>"> <?php echo $productType->response->name?> </option>
                                       <?php
-                                        $curl = curl_init();
-                                        curl_setopt_array($curl, array(
-                                          CURLOPT_URL => 'http://localhost:8000/productType',
-                                          CURLOPT_RETURNTRANSFER => true,
-                                          CURLOPT_ENCODING => '',
-                                          CURLOPT_MAXREDIRS => 10,
-                                          CURLOPT_TIMEOUT => 0,
-                                          CURLOPT_FOLLOWLOCATION => true,
-                                          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                          CURLOPT_CUSTOMREQUEST => 'GET',
-                                          CURLOPT_HTTPHEADER => array(
-                                            'Authorization: Basic ZnJvbnRlbmR0b2tlbjphZG1pbg=='
-                                          ),
-                                        ));
-                                        $response = curl_exec($curl);
-                                        curl_close($curl);
-                                        $response = json_decode($response);
-                                        
-                                        foreach ($response->response as $row){
+                                        $responseT = webRequest('productType', 'GET');
+
+                                        foreach ($responseT->response as $row){
                                           echo '<option value="'.$row->id.'">'.$row->name.'</option>';
                                         }                        
                                       ?>

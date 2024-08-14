@@ -1,6 +1,5 @@
 <?php
-  $msg = "";
-  include_once('./view/pages/session.php');
+  require_once './controllers/WebRequest.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -131,24 +130,8 @@
                               Taxe Code
                               <select class="form-control text-secondary" id="id_pt" name="id_pt" required="required">
                               <?php
-                                $curl = curl_init();
-                                curl_setopt_array($curl, array(
-                                  CURLOPT_URL => 'http://localhost:8000/productType',
-                                  CURLOPT_RETURNTRANSFER => true,
-                                  CURLOPT_ENCODING => '',
-                                  CURLOPT_MAXREDIRS => 10,
-                                  CURLOPT_TIMEOUT => 0,
-                                  CURLOPT_FOLLOWLOCATION => true,
-                                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                  CURLOPT_CUSTOMREQUEST => 'GET',
-                                  CURLOPT_HTTPHEADER => array(
-                                    'Authorization: Basic ZnJvbnRlbmR0b2tlbjphZG1pbg=='
-                                  ),
-                                ));
-                                $response = curl_exec($curl);
-                                curl_close($curl);
-                                $response = json_decode($response);
-                                
+                                $response = webRequest('productType', 'GET');
+                              
                                 foreach ($response->response as $row){
                                   echo '<option value="'.$row->id.'">'.$row->name.'</option>';
                                 }                        

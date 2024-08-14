@@ -1,5 +1,6 @@
 <?php
 #Here I include in the beginer the credentials and remove it from the default constructor, but the class could be modified for to accept connections in others DB, have a lot of options
+define('BASE_URL', 'http://localhost:8000/');
 define('db_host', 'localhost');
 define('db_user', 'sa');
 define('db_pass', 'SqlServer2019!');
