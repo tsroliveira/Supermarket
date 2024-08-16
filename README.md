@@ -1,9 +1,8 @@
 # Supermarket
- Supermarket System
 
-# Notas do Projeto
+# Requisitos do Projeto
 
-O sistema foi desenvolvido com base nos seguintes requisitos:
+- O sistema foi desenvolvido com base nos seguintes requisitos:
 
 1. O código deve ser desenvolvido em formato universal, com textos inseridos manualmente em inglês.
   
