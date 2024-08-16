@@ -1,12 +1,10 @@
 # Supermarket
 
-# Requisitos do Projeto
+# Requisitos Utilizados para o Desenvolvimento do Presente Projeto
 
-- O sistema foi desenvolvido com base nos seguintes requisitos:
-
-1. O código deve ser desenvolvido em formato universal, com textos inseridos manualmente em inglês.
+1. O código deve ser desenvolvido em formato universal, com textos inseridos manualmente.
   
-2. Deverá conter um sistema de login simples.Feito manual, sem uso de frameworks. Não sendo necessário desenvolver requisitos de segurança complexos como criptografia avançada.
+2. Deverá conter um sistema de login simples. Feito de forma manual, sem uso de frameworks. Não sendo necessário desenvolver requisitos de segurança complexos como criptografia avançada.
   
 3. O FrontEnd deve estar separado do BackEnd e devem se falar em formado de API Rest.
 
