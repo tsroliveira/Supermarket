@@ -2,6 +2,7 @@
 
 # Requisitos Utilizados para o Desenvolvimento do Presente Projeto
 
+
 1. O código deve ser desenvolvido em formato universal, com textos inseridos manualmente.
   
 2. Deverá conter um sistema de login simples. Feito de forma manual, sem uso de frameworks. Não sendo necessário desenvolver requisitos de segurança complexos como criptografia avançada.
@@ -19,9 +20,7 @@
 8. Deverá ser usado o servidor local que o PHP fornece (não um servidor de mercado como Apache por exemplo.
 
 
-##############################################################################################################
-
-Instalação do projeto
+# Instalação do projeto
 
 1 - BANCO DE DADOS: O database utilizado no desenvolvimento foi o mssql server 2019 latest. Para replicar o ambiente eu disponibilizei na masta "/mssql-server/" as configurações utilizadas no arquivo docker-compose.yaml.
     Ao iniciar o docker com o comando docker-compose up -d, ele carrega o script de inicialização juntamente com as instruções sql contendo o script de criação do banco e na sequencia faz os inserts nas bases.
@@ -34,9 +33,7 @@ Instalação do projeto
 4 - FRONT-END: Para executar o front-end deve ser aberto um segundo prompt de comando como administrador (os módulos são independentes), navegue até a raiz do projeto web, que é a pasta "/web/" e rode o comando "php -S localhost:8080". Caso deseje, pode rodar o Front-end na   
     porta que desejar.
 
-
-Desde já agradeço, espero que corra tudo bem quanto as instruções do projeto.
-
+# Imagem do Projeto Desenvolvido
 
 ![image](https://github.com/user-attachments/assets/2739b571-a79d-4de3-a597-afd16fee0323)
 
