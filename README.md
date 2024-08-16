@@ -14,7 +14,7 @@
 
 5. Deverá ser disponibilizado um arquivo no diretório "/mssql-server/" com a collection que possa ser importada em programas como Postman ou similares para fazer os testes da API do BackEnd de forma independente do FrontEnd.
 
-6. Para o FrontEnd poderá ser utilizado algum Framework JS.
+6. Para o FrontEnd poderá ser utilizado algum Framework.
 
 7. Deverá ser utilizado como SGBD o MSSQL ou PgSQL em formato de Docker.
 
@@ -39,7 +39,8 @@ Para executar o back-end basta abrir o prompt de comando como administrador, nav
 Para executar o front-end deve ser aberto um segundo prompt de comando como administrador (os módulos são independentes), navegue até a raiz do projeto web, que é a pasta "/web/" e rode o comando "php -S localhost:8080". Caso deseje, pode rodar o Front-end na   
 porta que desejar.
 
-
+#
+O projeto foi construído utilizando PHP sem frameworks e para o Frontend foi utilizando um template em bootstrap como base do layout.
 
 
 
