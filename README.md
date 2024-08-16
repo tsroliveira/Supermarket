@@ -1,7 +1,8 @@
-# Supermarket
+# PHP Supermarket Project
+![image](https://github.com/user-attachments/assets/2739b571-a79d-4de3-a597-afd16fee0323)
 
+#
 # Requisitos Utilizados para o Desenvolvimento do Presente Projeto
-
 
 1. O código deve ser desenvolvido em formato universal, com textos inseridos manualmente.
   
@@ -20,22 +21,23 @@
 8. Deverá ser usado o servidor local que o PHP fornece (não um servidor de mercado como Apache por exemplo.
 
 
+#
 # Instalação do projeto
 
-1 - BANCO DE DADOS: O database utilizado no desenvolvimento foi o mssql server 2019 latest. Para replicar o ambiente eu disponibilizei na masta "/mssql-server/" as configurações utilizadas no arquivo docker-compose.yaml.
-    Ao iniciar o docker com o comando docker-compose up -d, ele carrega o script de inicialização juntamente com as instruções sql contendo o script de criação do banco e na sequencia faz os inserts nas bases.
-    Para que não ocorram problemas, também foi disponibilizado um arquivo "sql/sqlAlldata.sql" e em último caso tem o backup de cada base na pasta "/sql/segmented/"
+### 1 - BANCO DE DADOS: 
+O database utilizado no desenvolvimento foi o mssql server 2019 latest. Para replicar o ambiente eu disponibilizei na masta "/mssql-server/" as configurações utilizadas no arquivo docker-compose.yaml.
+Ao iniciar o docker com o comando docker-compose up -d, ele carrega o script de inicialização juntamente com as instruções sql contendo o script de criação do banco e na sequencia faz os inserts nas bases.
+Para que não ocorram problemas, também foi disponibilizado um arquivo "sql/sqlAlldata.sql" e em último caso tem o backup de cada base na pasta "/sql/segmented/"
 
-2 - POSTMAN: Conforme citado acima o arquivo com as collections para analise do backend encontram-se no diretório "/mssql-server/Supermarket.postman_collection.json"
+### 2 - POSTMAN: 
+Conforme citado acima o arquivo com as collections para analise do backend encontram-se no diretório "/mssql-server/Supermarket.postman_collection.json"
 
-3 - BACK-END: Para executar o back-end basta abrir o prompt de comando como administrador, navegar até a raiz do projeto back-end que é a pasta "/app/" e rodar o comando "php -S localhost:8000", é importante que o backend rode na porta 8000 (oito mil)
+### 3 - BACK-END: 
+Para executar o back-end basta abrir o prompt de comando como administrador, navegar até a raiz do projeto back-end que é a pasta "/app/" e rodar o comando "php -S localhost:8000", é importante que o backend rode na porta 8000 (oito mil)
 
-4 - FRONT-END: Para executar o front-end deve ser aberto um segundo prompt de comando como administrador (os módulos são independentes), navegue até a raiz do projeto web, que é a pasta "/web/" e rode o comando "php -S localhost:8080". Caso deseje, pode rodar o Front-end na   
-    porta que desejar.
-
-# Imagem do Projeto Desenvolvido
-
-![image](https://github.com/user-attachments/assets/2739b571-a79d-4de3-a597-afd16fee0323)
+### 4 - FRONT-END: 
+Para executar o front-end deve ser aberto um segundo prompt de comando como administrador (os módulos são independentes), navegue até a raiz do projeto web, que é a pasta "/web/" e rode o comando "php -S localhost:8080". Caso deseje, pode rodar o Front-end na   
+porta que desejar.
 
 
 
