@@ -40,7 +40,7 @@ Para executar o front-end deve ser aberto um segundo prompt de comando como admi
 porta que desejar.
 
 #
-O projeto foi construído utilizando PHP sem frameworks e para o Frontend foi utilizando um template em bootstrap como base do layout.
+O projeto foi construído utilizando PHP sem frameworks e para o Frontend foi utilizando um template em bootstrap (gentelella) como base para o layout.
 
 
 
