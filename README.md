@@ -18,7 +18,7 @@
 
 7. Deverá ser utilizado como SGBD o MSSQL ou PgSQL em formato de Docker.
 
-8. Deverá ser usado o servidor local que o PHP fornece (não um servidor de mercado como Apache por exemplo.
+8. Deverá ser usado o servidor local que o PHP fornece (não um servidor de mercado como Apache por exemplo).
 
 
 #
